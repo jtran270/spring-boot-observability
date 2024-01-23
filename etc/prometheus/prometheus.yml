@@ -7,11 +7,13 @@ global:
 alerting:
   alertmanagers:
     - static_configs:
-        - targets:
-          # - alertmanager:9093
+      - targets:
+        # Alertmanager's default port is 9093
+        - localhost:9093
 
 # Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
 rule_files:
+  - "/workspace/rules.yml"
   # - "first_rules.yml"
   # - "second_rules.yml"
 

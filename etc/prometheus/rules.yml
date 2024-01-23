@@ -1,0 +1,11 @@
+groups:
+  - name: apps
+    rules:
+      ## Highly sensitive alert for testing
+      - alert: HighResponseTime
+        expr: http_server_requests_seconds_max > 0.01
+        for: 1m
+        labels:
+          severity: low
+        annotations:
+          summary: "High API response time for {{ $labels.uri }}"
